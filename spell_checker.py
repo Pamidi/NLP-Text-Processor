@@ -28,5 +28,3 @@ def known(words): return set(w for w in words if w in NWORDS)
 def correct(word):
     candidates = known([word]) or known(edits1(word)) or known_edits2(word) or [word]
     return max(candidates, key=NWORDS.get)
-
-print(correct('applica'))
