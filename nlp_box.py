@@ -35,7 +35,7 @@ class ExampleFrame(wx.Frame):
         self.lblname3 = wx.StaticText(self.panel, label="Type sentence:")
         self.editname3 = wx.TextCtrl(self.panel, size=(340, -1))
         self.lblname4 = wx.StaticText(self.panel, label="Chart Parser:")
-        self.parse_chart = wx.TextCtrl(self.panel, size=(340, -1))
+        self.parse_chart = wx.StaticText(self.panel, label="")
         self.result4 = wx.StaticText(self.panel, label="")
         self.result4.SetForegroundColour(wx.RED)
 
@@ -90,6 +90,8 @@ class ExampleFrame(wx.Frame):
         chart=[]
         res=grammar_validator.validate(self.editname3.GetValue(),chart)
         self.result4.SetLabel(res)
+        self.parse_chart.SetLabel(' '.join([("%s" % i) for i in chart]))
+        self.sizer.Layout()
         
         
     def check_spelling(self,e):
