@@ -26,11 +26,15 @@ def complete_wfst(wfst, tokens, grammar, trace=False):
 
 def display(wfst, tokens,chart):
     print '\nWFST ' + ' '.join([("%-4d" % i) for i in range(1, len(wfst))])
+    chart.append("WFST")
+    for i in range(1,len(wfst)):
+        chart.append(i)
     for i in range(len(wfst)-1):
         print "%d   " % i,
+        chart.append(i)
         for j in range(1, len(wfst)):
             print "%-4s" % (wfst[i][j] or '.'),
-            chart.append(wfst[i][j])
+            chart.append(wfst[i][j] or '.')
         print
 
 

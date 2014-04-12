@@ -91,6 +91,7 @@ class ExampleFrame(wx.Frame):
         res=grammar_validator.validate(self.editname3.GetValue(),chart)
         self.result4.SetLabel(res)
         
+        
     def check_spelling(self,e):
         result=[]
         root.search(self.editname2.GetValue(),'',result)
