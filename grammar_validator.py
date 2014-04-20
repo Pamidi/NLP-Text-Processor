@@ -1,5 +1,4 @@
 import nltk
-
   
 def init_wfst(tokens, grammar):
     numtokens = len(tokens)
@@ -25,8 +24,8 @@ def complete_wfst(wfst, tokens, grammar, trace=False):
     return wfst
 
 def display(wfst, tokens,chart):
-    print '\nWFST ' + ' '.join([("%-4d" % i) for i in range(1, len(wfst))])
-    chart.append("WFST")
+    print '\nCP ' + ' '.join([("%-4d" % i) for i in range(1, len(wfst))])
+    chart.append("CP")
     for i in range(1,len(wfst)):
         chart.append(i)
     for i in range(len(wfst)-1):
