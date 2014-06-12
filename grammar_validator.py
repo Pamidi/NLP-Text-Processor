@@ -24,8 +24,8 @@ def complete_wfst(wfst, tokens, grammar, trace=False):
     return wfst
 
 def display(wfst, tokens,chart):
-    print '\nCP ' + ' '.join([("%-4d" % i) for i in range(1, len(wfst))])
-    chart.append("CP")
+    print '\nWFST ' + ' '.join([("%-4d" % i) for i in range(1, len(wfst))])
+    chart.append("WFST")
     for i in range(1,len(wfst)):
         chart.append(i)
     for i in range(len(wfst)-1):
@@ -45,7 +45,7 @@ def validate(sentence,chart):
     var_s="S -> NP VP"
     var_pp="PP -> P NP | P VP"
     var_np="NP -> N | Det N | Det N P"
-    var_vp="VP -> V NP | VP PP | V PP | V"
+    var_vp="VP -> V N |V NP | VP PP | V PP | V"
     var_n=""
     var_v=""
     var_p=""
@@ -64,7 +64,7 @@ def validate(sentence,chart):
             var_det = var_det+' | \''+i+'\''
        elif j=='NNP' or j=='PRP' or j=='NNS':
             var_np = var_np+' | \''+i+'\''
-       elif j=='JJ' or j=='NN':
+       elif j=='JJ' or j=='NN' or j=='JJR':
          if(len(var_n)==0):
             var_n = var_n+'N -> \''+i+'\''
          else:
@@ -120,3 +120,6 @@ def validate(sentence,chart):
     else:
      return "invalid sentence"
 
+inp=raw_input("enter sentence:",)
+chart=[]
+print(validate(inp,chart))

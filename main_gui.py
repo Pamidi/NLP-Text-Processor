@@ -148,7 +148,7 @@ class ExampleFrame(wx.Frame):
         if(p>=1):
             self.parse_chart1.SetLabel(store[0])
         
-        self.sizer.Layout()
+        #self.sizer.Layout()
         
         
     def check_spelling(self,e):
